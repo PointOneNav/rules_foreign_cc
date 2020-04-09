@@ -290,6 +290,10 @@ def cc_external_rule_impl(ctx, attrs):
         include_dir_name = attrs.out_include_dir,
     )
     output_groups = _declare_output_groups(installdir_copy.file, outputs.out_binary_files)
+    output_groups["binaries"] = depset(outputs.out_binary_files)
+    output_groups["libraries"] = depset(direct = outputs.libraries.interface_libraries +
+                                                 outputs.libraries.shared_libraries +
+                                                 outputs.libraries.static_libraries)
     wrapped_files = [
         wrapped_outputs.script_file,
         wrapped_outputs.log_file,
