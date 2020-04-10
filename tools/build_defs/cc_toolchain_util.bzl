@@ -118,7 +118,7 @@ def _filter(list_, predicate, inverse):
 def _files_map(files_list):
     by_names_map = {}
     for file_ in files_list:
-        name_ = _file_name_no_ext(file_.basename)
+        name_ = file_.basename
         value = by_names_map.get(name_)
         if value:
             fail("Can not have libraries with the same name in the same category")
