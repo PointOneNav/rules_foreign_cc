@@ -63,7 +63,7 @@ fi
     )
 
 def copy_dir_contents_to_dir(source, target):
-    return """cp -L -r --no-target-directory "{}" "{}" """.format(source, target)
+    return """cp -a --no-target-directory "{}" "{}" """.format(source, target)
 
 def symlink_contents_to_dir(source, target):
     text = """local target="$2"
